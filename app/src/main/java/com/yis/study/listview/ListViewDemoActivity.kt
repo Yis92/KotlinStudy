@@ -33,7 +33,7 @@ class ListViewDemoActivity : AppCompatActivity() {
     class KotlinListAdapter(private val myData: List<String>, private val context: Context) : BaseAdapter() {
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-            var viewHolder: ViewHolder? = null
+            var viewHolder: ViewHolder?
             var view: View
             if (convertView == null) {
                 view = View.inflate(context, R.layout.adapter_main_item, null)
@@ -44,9 +44,9 @@ class ListViewDemoActivity : AppCompatActivity() {
                 viewHolder = view.tag as ViewHolder
             }
 
-            viewHolder.name.setText(myData[position])
+            viewHolder.name.text = myData[position]
 
-            return view!!
+            return view
         }
 
         override fun getItem(position: Int): Any {
@@ -61,7 +61,7 @@ class ListViewDemoActivity : AppCompatActivity() {
             return myData.size
         }
 
-        class ViewHolder(val view: View) {
+        class ViewHolder(view: View) {
             var name: TextView = view.findViewById(R.id.tv_name) as TextView
         }
 

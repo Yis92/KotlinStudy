@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_recycle_view_demo.*
  */
 class RecycleViewDemoActivity : AppCompatActivity() {
 
-    var listData = listOf("测试1", "测试2", "测试3", "测试4", "测试5", "测试6", "测试7", "测试8")
+    private var listData = listOf("测试1", "测试2", "测试3", "测试4", "测试5", "测试6", "测试7", "测试8")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +51,12 @@ class RecycleViewDemoActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(viewholder: ViewHolder, position: Int) {
-            viewholder.tvName.setText(myData[position])
+            viewholder.tvName.text = myData[position]
         }
 
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            var tvName: TextView = itemView!!.findViewById(R.id.tv_name) as TextView
+            var tvName: TextView = itemView.findViewById(R.id.tv_name) as TextView
         }
     }
 
